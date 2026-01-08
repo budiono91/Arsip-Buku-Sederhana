@@ -1,8 +1,5 @@
 # 📚 Arsip Buku Sederhana
 
-[![Status](https://img.shields.io/badge/Status-Completed-success.svg)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](#)
-
 Aplikasi berbasis web sederhana namun fungsional untuk membantu pengguna mengelola daftar buku mereka secara digital. Dengan **Arsip Buku Sederhana**, Anda dapat mencatat buku yang sedang dibaca, memantau buku yang sudah selesai, mencari koleksi, hingga melihat statistik bacaan secara real-time.
 
 <img width="100%" alt="Screenshot Arsip Buku Sederhana" src="https://github.com/user-attachments/assets/f95a487d-0139-4a71-a141-f979c414e552" />
@@ -29,4 +26,4 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal Anda:
 
 1. **Clone** repositori ini:
    ```bash
-   git clone [https://github.com/username-kamu/arsip-buku-sederhana.git](https://github.com/budiono91/arsip-buku-sederhana.git)
+   git clone https://github.com/budiono91/Arsip-Buku-Sederhana.git
