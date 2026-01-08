@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pojok Baca</title>
+
+    <script defer src="main.js"></script>
+    
+    
+  
+  <body>
+    <header>
+      <h1>📚 Arsip Buku Sederhana </h1>
+      <p>Kelola koleksi bacaanmu dengan mudah</p>
+    </header>
+
+    <div class="stats-container">
+      <div class="stat-card">
+        <span id="totalBooks">0</span>
+        <label>Total Buku</label>
+      </div>
+      <div class="stat-card">
+        <span id="unreadBooks" class="text-danger">0</span>
+        <label>Belum Selesai</label>
+      </div>
+      <div class="stat-card">
+        <span id="readBooks" class="text-success">0</span>
+        <label>Selesai Dibaca</label>
+      </div>
+    </div>
+
+    <main>
+      <section>
+        <h2 id="formTitle">Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div class="form-group">
+            <label for="bookFormTitle">Judul Buku</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" placeholder="Contoh: Atomic Habits" />
+          </div>
+          <div class="form-group">
+            <label for="bookFormAuthor">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" placeholder="Nama penulis..." />
+          </div>
+          <div class="form-group">
+            <label for="bookFormYear">Tahun Terbit</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" placeholder="YYYY" />
+          </div>
+          <div class="form-group checkbox-group">
+            <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+            <label for="bookFormIsComplete" style="margin-bottom:0">Saya sudah selesai membaca buku ini</label>
+          </div>
+          <button id="bookFormSubmit" class="btn btn-primary" type="submit" data-testid="bookFormSubmitButton">
+            Simpan ke Rak <span>Belum Selesai</span>
+          </button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Cari Koleksi</h2>
+        <form id="searchBook" data-testid="searchBookForm" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" placeholder="Cari judul buku..." style="flex: 1; min-width: 200px;" />
+          <button id="searchSubmit" class="btn btn-search" type="submit" data-testid="searchBookFormSubmitButton">Cari</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>
+          Belum Selesai Dibaca
+          <div class="sort-wrapper">
+            Urutkan: 
+            <select id="sortIncomplete" onchange="sortBooks('incomplete')">
+              <option value="newest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+            </select>
+          </div>
+        </h2>
+        <div id="incompleteBookList" data-testid="incompleteBookList"></div>
+      </section>
+
+      <section>
+        <h2>
+          Selesai Dibaca
+          <div class="sort-wrapper">
+            Urutkan: 
+            <select id="sortComplete" onchange="sortBooks('complete')">
+              <option value="newest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+            </select>
+          </div>
+        </h2>
+        <div id="completeBookList" data-testid="completeBookList"></div>
+      </section>
+    </main>
+
+    <footer style="text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.8rem;">
+      <p>&copy; 2026 A-Bookshelf</p>
+    </footer>
+  </body>
+  <style>
+      :root {
+        --primary: #6366f1;
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --success: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --border: #e2e8f0;
+        --radius: 12px;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        margin: 0;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        margin: 20px 0 40px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      /* Fitur Statistik */
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 850px;
+        margin: 0 auto 30px;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 15px;
+        border-radius: var(--radius);
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border: 1px solid var(--border);
+      }
+
+      .stat-card span {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .stat-card label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      main {
+        max-width: 850px;
+        margin: 0 auto;
+        display: grid;
+        gap: 24px;
+      }
+
+      section {
+        background: var(--card-bg);
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Fitur Sorting */
+      .sort-wrapper {
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+
+      /* Form Styling */
+      .form-group { margin-bottom: 16px; }
+      label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; }
+      
+      input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f1f5f9;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      /* Buttons */
+      .btn {
+        cursor: pointer;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        transition: 0.2s;
+      }
+
+      .btn-primary { background: var(--primary); color: white; width: 100%; }
+      .btn-search { background: var(--text-main); color: white; }
+      
+      /* Book Card */
+      .book-item {
+        border: 1px solid var(--border);
+        padding: 16px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .book-item:hover { transform: translateY(-2px); border-color: var(--primary); }
+
+      .button-group { display: flex; gap: 8px; margin-top: 15px; }
+      
+      /* Utilities */
+      .text-success { color: var(--success); }
+      .text-danger { color: var(--danger); }
+      
+      @media (max-width: 600px) {
+        .stats-container { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+</html>
