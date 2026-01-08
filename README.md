@@ -1,40 +1,32 @@
-# Arsip-Buku-Sederhana
-<img width="1902" height="965" alt="Screenshot 2026-01-08 234350" src="https://github.com/user-attachments/assets/f95a487d-0139-4a71-a141-f979c414e552" />
+# 📚 Arsip Buku Sederhana
 
-## 📚 Arsip Buku Sederhana
-adalah aplikasi berbasis web sederhana namun fungsional untuk membantu pengguna mengelola daftar buku mereka. Pengguna dapat mencatat buku yang sedang dibaca, buku yang sudah selesai, mencari koleksi, hingga melihat statistik bacaan secara real-time.
+[![Status](https://img.shields.io/badge/Status-Completed-success.svg)](#)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](#)
 
- ## ✨ Fitur Utama
-Aplikasi ini dilengkapi dengan berbagai fitur modern:
--Manajemen Data Lengkap: Tambah, Edit, dan Hapus data buku (Judul, Penulis, Tahun).
--Dual-Rack System: Memisahkan buku ke dalam rak "Belum Selesai Dibaca" dan "Selesai Dibaca".
--Statistik Real-time: Dashboard kecil yang menampilkan total koleksi dan progres bacaan.
--Pencarian Cepat: Filter judul buku secara instan saat mengetik (Real-time Search).
--Pengurutan (Sorting): Urutkan koleksi berdasarkan tahun terbit (terbaru atau terlama).
--Penyimpanan Lokal (Web Storage): Semua data tersimpan aman di browser Anda, tidak akan hilang meski halaman di-refresh.
--Desain Responsif: Tampilan yang nyaman diakses baik melalui desktop maupun smartphone.
+Aplikasi berbasis web sederhana namun fungsional untuk membantu pengguna mengelola daftar buku mereka secara digital. Dengan **Arsip Buku Sederhana**, Anda dapat mencatat buku yang sedang dibaca, memantau buku yang sudah selesai, mencari koleksi, hingga melihat statistik bacaan secara real-time.
 
- ## 🚀 Cara Menjalankan Proyek
--Clone atau Download repositori ini ke komputer Anda.
--Pastikan semua file (index.html, main.js) berada dalam satu folder yang sama.
--Buka file index.html menggunakan browser favorit Anda (Chrome, Firefox, Edge, atau Safari).
--Selesai! Anda bisa langsung mulai mengelola koleksi buku Anda.
+<img width="100%" alt="Screenshot Arsip Buku Sederhana" src="https://github.com/user-attachments/assets/f95a487d-0139-4a71-a141-f979c414e552" />
 
-## 🛠️ Teknologi yang Digunakan
--Aplikasi ini dibangun menggunakan teknologi native web tanpa library eksternal untuk performa yang ringan:
--HTML5: Untuk struktur konten dan aksesibilitas.
--CSS3: Menggunakan CSS Variables, Flexbox, dan Grid untuk tampilan modern.
--JavaScript (Vanilla): Untuk logika manipulasi DOM, pengolahan array, dan API Web Storage.
+---
 
-## 📂 Struktur File
-Plaintext
+## ✨ Fitur Utama
 
-.
-├── index.html    # Struktur halaman dan styling (CSS)
-└── main.js       # Logika aplikasi dan manajemen data
+Aplikasi ini dirancang dengan antarmuka modern dan dilengkapi berbagai fitur:
 
+- **📋 Manajemen Data Lengkap**: Tambah, Edit, dan Hapus data buku (Judul, Penulis, Tahun).
+- **🗄️ Dual-Rack System**: Memisahkan buku ke dalam rak "Belum Selesai Dibaca" dan "Selesai Dibaca".
+- **📊 Statistik Real-time**: Dashboard interaktif yang menampilkan total koleksi dan progres bacaan Anda.
+- **🔍 Pencarian Cepat**: Filter judul buku secara instan saat mengetik (*Real-time Search*).
+- **↕️ Pengurutan (Sorting)**: Urutkan koleksi berdasarkan tahun terbit dari yang terbaru atau terlama.
+- **💾 Penyimpanan Lokal**: Menggunakan *Web Storage API* agar data tidak hilang meskipun halaman di-refresh atau browser ditutup.
+- **📱 Desain Responsif**: Tampilan yang optimal diakses melalui desktop maupun perangkat mobile.
 
-## 📝 Catatan Penggunaan
--Status Baca: Saat menambah buku, centang "Selesai dibaca" untuk memasukkannya langsung ke rak buku yang sudah tamat.
--Mode Edit: Klik tombol "Edit" untuk mengubah detail buku. Form akan otomatis terisi dan judul form berubah menjadi "Edit Buku".
--Pencarian: Cukup ketik judul pada kolom cari, daftar buku akan otomatis menyaring sendiri tanpa perlu menekan tombol Enter.
+---
+
+## 🚀 Cara Menjalankan Proyek
+
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal Anda:
+
+1. **Clone** repositori ini:
+   ```bash
+   git clone [https://github.com/username-kamu/arsip-buku-sederhana.git](https://github.com/budiono91/arsip-buku-sederhana.git)
